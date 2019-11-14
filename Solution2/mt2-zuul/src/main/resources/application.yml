@@ -1,0 +1,46 @@
+server:
+  port: ${SERVER_PORT:8080}
+spring:
+  application:
+    name: mt2-zuul
+ribbon:
+  ReadTimeout: 300000
+  ConnectTimeout: 300000
+  MaxAutoRetries: 3
+  MaxAutoRetriesNextServer: 3
+  eureka:
+    enabled: true
+
+#hystrix超时熔断配置
+hystrix:
+  command:
+    cmut-app-api:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 300000
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8000/eureka/
+  instance:
+    prefer-ip-address: true
+
+zuul:
+  routes:
+    mt2-user: #用户
+      path: /user/** #配置请求URL的请求规则
+      serviceId: mt2-user #指定Eureka注册中心中的服务id
+      strip-prefix: true
+      sentiviteHeaders:
+      customSensitiveHeaders: true
+    mt2-profile: #用户
+      path: /profile/** #配置请求URL的请求规则
+      serviceId: mt2-profile #指定Eureka注册中心中的服务id
+      strip-prefix: true
+      sentiviteHeaders:
+      customSensitiveHeaders: true
+

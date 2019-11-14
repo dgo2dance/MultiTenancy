@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>MultiTenancy</artifactId>
+        <groupId>MyTest</groupId>
+        <version>1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>Solution1</artifactId>
+
+    <name>解决方案1</name>
+    <description>
+        独立数据库。即一个租户一个数据库，这种方案的用户数据隔离级别最高，安全性最好，但成本较高。
+    </description>
+
+
+</project>
